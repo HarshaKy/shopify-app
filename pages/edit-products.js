@@ -130,8 +130,8 @@ const UPDATE_PRICE = gql`
   
     itemToBeConsumed = () => {
       const item = store.get('item');
-      const price = item.variants.edges[0].node.price;
-      const variantId = item.variants.edges[0].node.id;
+      const price = item.node.variants.edges[0].node.price;
+      const variantId = item.node.variants.edges[0].node.id;
       const discounter = price * 0.1;
       this.setState({ price, variantId });
       return (price - discounter).toFixed(2);
